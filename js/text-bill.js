@@ -23,9 +23,9 @@ addBtn.addEventListener('click', function(){
     smsTotal.innerHTML=sms.toFixed(2);
     total.innerHTML = totalcost.toFixed(2);
     
-    if (totalcost>=30) {
-        total.classList.toggle("warning");
-    } if(totalcost>=50){
+    if (totalcost>=50) {
         total.classList.toggle("danger");
+    } else if(totalcost>=30){
+        total.classList.toggle("warning");
     }
 });
