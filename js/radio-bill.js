@@ -26,11 +26,10 @@ addBtnTwo.addEventListener('click', function(){
     callTotalTwo.innerHTML=call.toFixed(2);
     smsTotalTwo.innerHTML=sms.toFixed(2);
     totalTwo.innerHTML = totalcost.toFixed(2);
-    console.log(checkedItem)
     
     if (totalcost>=50) {
         totalTwo.classList.toggle("danger");
-    } else if(totalcost>=30){
+    }  if(totalcost>=30){
         totalTwo.classList.toggle("warning");
     }
 });
