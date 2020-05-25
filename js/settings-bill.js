@@ -21,17 +21,18 @@ var call3 =0;
 var totalcost3 = 0;
 
 SettingsBtn.addEventListener('click', function(){
-    smsCost=parseInt(smsCostSetting.value);
-    callCost=parseInt(callCostSetting.value);
-    warningLevel=parseInt(warningLevelSetting.value);
-    criticalLevel=parseInt(criticalLevelSetting.value);
-    alert("settings updated");
+    smsCost=parseFloat(smsCostSetting.value);
+    callCost=parseFloat(callCostSetting.value);
+    warningLevel=parseFloat(warningLevelSetting.value);
+    criticalLevel=parseFloat(criticalLevelSetting.value);
 });
 
 addBtn2.addEventListener('click', function(){
 
-    itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    var checkedItem = itemChecked.value;    
+    var itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    if(itemChecked){
+    var checkedItem = itemChecked.value;
+    }    
 
     if (checkedItem === "call"){
         call3 += callCost;
@@ -41,13 +42,14 @@ addBtn2.addEventListener('click', function(){
         sms3 += smsCost;
         totalcost3 += smsCost;
     }
+
     callTotal3.innerHTML=call3.toFixed(2);
     smsTotal3.innerHTML=sms3.toFixed(2);
     total3.innerHTML = totalcost3.toFixed(2);
     
     if (totalcost3>=criticalLevel) {
         total3.classList.toggle("danger");
-    }  if(totalcost>=warningLevel){
+    }  if(totalcost3>=warningLevel){
         total3.classList.toggle("warning");
     }
 });
