@@ -4,26 +4,26 @@ const smsTotal = document.querySelector(".smsTotalOne");
 const callTotal = document.querySelector(".callTotalOne");
 const total = document.querySelector(".totalOne");
 
-    var sms = 0;
-    var call =0;
-    var totalcost = 0;
+    var smsOne = 0;
+    var callOne =0;
+    var totalcostOne = 0;
 
 addBtn.addEventListener('click', function(){
 
     var item = typeString.value.trim();
     if (item === "call"){
-        call += 2.75;
-        totalcost += 2.75;
+        callOne += 2.75;
+        totalcostOne += 2.75;
     }
     if (item === "sms"){
-        sms += 0.75;
-        totalcost += 0.75;
+        smsOne += 0.75;
+        totalcostOne += 0.75;
     }
-    callTotal.innerHTML=call.toFixed(2);
-    smsTotal.innerHTML=sms.toFixed(2);
-    total.innerHTML = totalcost.toFixed(2);
+    callTotal.innerHTML=callOne.toFixed(2);
+    smsTotal.innerHTML=smsOne.toFixed(2);
+    total.innerHTML = totalcostOne.toFixed(2);
     
-    if (totalcost>=50) {
+    if (totalcostOne>=50) {
         total.classList.toggle("danger");
     } else if(totalcost>=30){
         total.classList.toggle("warning");
