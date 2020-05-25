@@ -25,7 +25,7 @@ addBtn.addEventListener('click', function(){
     
     if (totalcostOne>=50) {
         total.classList.toggle("danger");
-    } else if(totalcost>=30){
+    }  if(totalcostOne>=30){
         total.classList.toggle("warning");
     }
 });
