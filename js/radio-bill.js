@@ -28,8 +28,8 @@ addBtnTwo.addEventListener('click', function(){
     totalTwo.innerHTML = totalcost.toFixed(2);
     
     if (totalcost>=50) {
-        totalTwo.classList.toggle("danger");
-    }  if(totalcost>=30){
-        totalTwo.classList.toggle("warning");
+        totalTwo.classList.add("danger");
+    } else if(totalcost>=30){
+        totalTwo.classList.add("warning");
     }
 });

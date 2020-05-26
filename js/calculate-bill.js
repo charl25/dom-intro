@@ -21,9 +21,9 @@ calcBtn.addEventListener('click', function(){
     var roundedBillTotal = billTotal.toFixed(2);
     theTotal.innerHTML=roundedBillTotal;
     if (roundedBillTotal>=20) {
-        theTotal.classList.toggle("warning");
-    } if(roundedBillTotal>=30){
-        theTotal.classList.toggle("danger");
+        theTotal.classList.add("warning");
+    } else if(roundedBillTotal>=30){
+        theTotal.classList.add("danger");
     }
 
 });

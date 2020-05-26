@@ -48,8 +48,8 @@ addBtn2.addEventListener('click', function(){
     total3.innerHTML = totalcost3.toFixed(2);
     
     if (totalcost3>=criticalLevel) {
-        total3.classList.toggle("danger");
-    }  if(totalcost3>=warningLevel){
-        total3.classList.toggle("warning");
+        total3.classList.add("danger");
+    } else if(totalcost3>=warningLevel){
+        total3.classList.add("warning");
     }
 });

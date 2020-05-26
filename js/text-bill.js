@@ -24,8 +24,8 @@ addBtn.addEventListener('click', function(){
     total.innerHTML = totalcostOne.toFixed(2);
     
     if (totalcostOne>=50) {
-        total.classList.toggle("danger");
-    }  if(totalcostOne>=30){
-        total.classList.toggle("warning");
+        total.classList.add("danger");
+    }else if(totalcostOne>=30){
+        total.classList.add("warning");
     }
 });
