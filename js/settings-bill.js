@@ -28,7 +28,12 @@ SettingsBtn.addEventListener('click', function(){
 });
 
 addBtn2.addEventListener('click', function(){
-
+    if (warningLevel>totalcost3) {
+        total3.classList.add("initial");
+    } else if(criticalLevel>totalcost3){
+        total3.classList.add("warning");
+    }
+if(criticalLevel>totalcost3){
     var itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if(itemChecked){
     var checkedItem = itemChecked.value;
@@ -49,7 +54,9 @@ addBtn2.addEventListener('click', function(){
     
     if (totalcost3>=criticalLevel) {
         total3.classList.add("danger");
+        return;
     } else if(totalcost3>=warningLevel){
         total3.classList.add("warning");
     }
+}else{alert("reached critical usage")}
 });

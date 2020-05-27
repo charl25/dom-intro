@@ -20,10 +20,10 @@ calcBtn.addEventListener('click', function(){
     //round to two decimals
     var roundedBillTotal = billTotal.toFixed(2);
     theTotal.innerHTML=roundedBillTotal;
-    if (roundedBillTotal>=20) {
-        theTotal.classList.add("warning");
-    } else if(roundedBillTotal>=30){
+    if (roundedBillTotal>=30) {
         theTotal.classList.add("danger");
+    } else if(roundedBillTotal>=20){
+        theTotal.classList.add("warning");
     }
 
 });
