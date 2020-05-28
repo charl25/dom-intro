@@ -54,5 +54,5 @@ if(criticalLevel>totalcost3){
         return;}
     else if(totalcost3>=warningLevel){
         total3.classList.add("warning");}
-}else{alert("reached critical usage")}
+}
 });
