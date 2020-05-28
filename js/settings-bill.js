@@ -25,28 +25,25 @@ SettingsBtn.addEventListener('click', function(){
     callCost=parseFloat(callCostSetting.value);
     warningLevel=parseFloat(warningLevelSetting.value);
     criticalLevel=parseFloat(criticalLevelSetting.value);
+    total3.classList.remove("warning","danger");
+    if (totalcost3>=criticalLevel) {
+        total3.classList.add("danger");
+        return;}
+    else if(totalcost3>=warningLevel){
+        total3.classList.add("warning");}
 });
 
 addBtn2.addEventListener('click', function(){
-    if (warningLevel>totalcost3) {
-        total3.classList.add("initial");
-    } else if(criticalLevel>totalcost3){
-        total3.classList.add("warning");
-    }
 if(criticalLevel>totalcost3){
     var itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if(itemChecked){
-    var checkedItem = itemChecked.value;
-    }    
-
+    var checkedItem = itemChecked.value;}    
     if (checkedItem === "call"){
         call3 += callCost;
-        totalcost3 += callCost;
-    }
+        totalcost3 += callCost;}
     if (checkedItem === "sms"){
         sms3 += smsCost;
-        totalcost3 += smsCost;
-    }
+        totalcost3 += smsCost;}
 
     callTotal3.innerHTML=call3.toFixed(2);
     smsTotal3.innerHTML=sms3.toFixed(2);
@@ -54,9 +51,8 @@ if(criticalLevel>totalcost3){
     
     if (totalcost3>=criticalLevel) {
         total3.classList.add("danger");
-        return;
-    } else if(totalcost3>=warningLevel){
-        total3.classList.add("warning");
-    }
+        return;}
+    else if(totalcost3>=warningLevel){
+        total3.classList.add("warning");}
 }else{alert("reached critical usage")}
 });
