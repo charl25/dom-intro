@@ -34,10 +34,7 @@ function SettingsBill(){
     }
 
     function calc(x){
-        if (!redZone()) {
-            call=call;
-            sms=sms;
-        } else {    
+        if (!redZone()) {   
             if (x === "call"){
                 call+= callCost;}
             if (x === "sms"){
