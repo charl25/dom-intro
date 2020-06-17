@@ -11,48 +11,38 @@ const addBtn2 = document.querySelector(".addBtn3");
 
 const SettingsBtn = document.querySelector(".updateSettings");
 
-var smsCost=0;
-var callCost=0;
-var warningLevel=0;
-var criticalLevel=0;
+const settingsBill= SettingsBill();
 
-var sms3 = 0;
-var call3 =0;
-var totalcost3 = 0;
+SettingsBtn.addEventListener('click', function(e){
+    total3.classList.remove(settingsBill.levelState());
 
-SettingsBtn.addEventListener('click', function(){
-    smsCost=parseFloat(smsCostSetting.value);
-    callCost=parseFloat(callCostSetting.value);
-    warningLevel=parseFloat(warningLevelSetting.value);
-    criticalLevel=parseFloat(criticalLevelSetting.value);
-    total3.classList.remove("warning","danger");
-    if (totalcost3>=criticalLevel) {
-        total3.classList.add("danger");
-        return;}
-    else if(totalcost3>=warningLevel){
-        total3.classList.add("warning");}
+    var callCost = parseFloat(callCostSetting.value);
+    var smsCost = parseFloat(smsCostSetting.value);
+    var warningLevel = parseFloat(warningLevelSetting.value);
+    var criticalLevel = parseFloat(criticalLevelSetting.value);
+
+    settingsBill.setCallCost(callCost);
+    settingsBill.setSmsCost(smsCost);
+    settingsBill.setWarningLevel(warningLevel);
+    settingsBill.setCriticalLevel(criticalLevel);
+    
+    total3.classList.add(settingsBill.levelState());
 });
 
-addBtn2.addEventListener('click', function(){
-if(criticalLevel>totalcost3){
-    var itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    if(itemChecked){
-    var checkedItem = itemChecked.value;}    
-    if (checkedItem === "call"){
-        call3 += callCost;
-        totalcost3 += callCost;}
-    if (checkedItem === "sms"){
-        sms3 += smsCost;
-        totalcost3 += smsCost;}
+addBtn2.addEventListener('click', function(e){
+
+     var itemChecked=document.querySelector("input[name='billItemTypeWithSettings']:checked");
+     if(itemChecked){
+     var checkedItem = itemChecked.value;}    
+    
+     settingsBill.calc(checkedItem);
+
+     var call3=settingsBill.getCallTotal();
+     var sms3=settingsBill.getSmsTotal();
+     var totals3 = settingsBill.getTotalCost();
 
     callTotal3.innerHTML=call3.toFixed(2);
     smsTotal3.innerHTML=sms3.toFixed(2);
-    total3.innerHTML = totalcost3.toFixed(2);
-    
-    if (totalcost3>=criticalLevel) {
-        total3.classList.add("danger");
-        return;}
-    else if(totalcost3>=warningLevel){
-        total3.classList.add("warning");}
-}
+    total3.innerHTML = totals3.toFixed(2);
+    total3.classList.add(settingsBill.levelState());
 });
