@@ -15,6 +15,7 @@ describe("billWithSettingsFunction", function () {
     
     it("should update sms total to R4.50 , call total to R5.00 and total cost to R9.50 when 3 sms' at R1.50 each and 2 calls at R2.50 each are made", function () {
         var billWithSettings3 = SettingsBill();
+        
         billWithSettings3.setCriticalLevel(20)
         billWithSettings3.setWarningLevel(10)
 

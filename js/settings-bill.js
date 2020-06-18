@@ -14,7 +14,7 @@ const SettingsBtn = document.querySelector(".updateSettings");
 const settingsBill= SettingsBill();
 
 SettingsBtn.addEventListener('click', function(e){
-    total3.classList.remove(settingsBill.levelState());
+    total3.classList.remove("warning","danger");
 
     var callCost = parseFloat(callCostSetting.value);
     var smsCost = parseFloat(smsCostSetting.value);
