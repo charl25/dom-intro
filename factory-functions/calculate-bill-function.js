@@ -7,6 +7,7 @@ function CalculateBill(){
     let theTotal=0;
 
     function calc(x){
+        theTotal=0;
         for (var i=0;i<x.length;i++){
             var billItem = x[i].trim();
             if (billItem === "call"){
