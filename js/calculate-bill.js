@@ -5,6 +5,8 @@ const billList = document.querySelector(".billString");
 const calcBill= CalculateBill();
 
 calcBtn.addEventListener('click', function(e){
+    theTotal.classList.remove("warning","danger");
+
     var list = billList.value;
     var bill= list.split(",");
     calcBill.calc(bill);

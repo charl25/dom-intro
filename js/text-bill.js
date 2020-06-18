@@ -7,6 +7,8 @@ const total = document.querySelector(".totalOne");
 const textBill= TextBill();
 
 addBtn.addEventListener('click', function(e){
+    total.classList.remove("warning","danger");
+
     var item = typeString.value.trim();
     textBill.calc(item);
     

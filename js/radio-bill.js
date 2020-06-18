@@ -6,6 +6,8 @@ const totalTwo = document.querySelector(".totalTwo");
 const radioBill= RadioBill();
 
 addBtnTwo.addEventListener('click',function(e){
+    totalTwo.classList.remove("warning","danger");
+
     var itemChecked=document.querySelector("input[name='billItemType']:checked");
     if(itemChecked){
     var checkedItem = itemChecked.value;
